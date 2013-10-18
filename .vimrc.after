@@ -1,0 +1,17 @@
+set guifont=Monaco:h12
+colorscheme railscasts
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+
+map <S-Enter> O<Esc>j
+map <CR> o<Esc>k
+
+command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
+
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>

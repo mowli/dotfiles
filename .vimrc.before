@@ -1,0 +1,2 @@
+call janus#disable_plugin('csv')
+call janus#disable_plugin('snipmate')
