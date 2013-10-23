@@ -7,6 +7,7 @@ map <CR> o<Esc>k
 
 command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
 
+" disable arrow keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
@@ -15,3 +16,9 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd VimEnter * NERDTree
+
+" vim-pathogen
+execute pathogen#infect()
