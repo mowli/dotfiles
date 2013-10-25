@@ -45,8 +45,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
-
-EDITOR=nano; export EDITOR
+VIM_EDITOR_NORC='vim -u NORC'
+EDITOR="$HOME/.std_editor"; export EDITOR
 
 # Ruby settings from Compeon
 export RUBY_HEAP_MIN_SLOTS=1000000
