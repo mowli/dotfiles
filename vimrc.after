@@ -19,6 +19,3 @@ noremap! <Right> <Esc>
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
-
-" vim-pathogen
-execute pathogen#infect()
