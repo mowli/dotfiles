@@ -1,5 +1,3 @@
-# Initialise rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -38,6 +36,12 @@ plugins=(rails2 git ruby bundler osx fu)
 #bindkey '\e[3~' delete-char
 #bindkey '^R' history-incremental-search-backward
 
+# Customize to your needs...
+export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
+
+# Initialise rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # Oracle Development: ruby-oci8
 export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 export NLS_LANG=GERMAN_GERMANY.UTF8
@@ -45,8 +49,6 @@ export NLS_COMP=LINGUISTIC
 export NLS_SORT=BINARY_CI
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
 VIM_EDITOR_NORC='vim -u NORC'
 EDITOR="$HOME/.std_editor"; export EDITOR
 
