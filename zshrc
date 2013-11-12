@@ -1,3 +1,5 @@
+# Initialise rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -54,4 +56,3 @@ export RUBY_HEAP_FREE_MIN=500000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
