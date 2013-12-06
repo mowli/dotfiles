@@ -20,3 +20,6 @@ noremap! <Right> <Esc>
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
+
+" Ignore files for ctrlp
+set wildignore+=tags,doc,tmp,log
