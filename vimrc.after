@@ -1,5 +1,6 @@
 set guifont=Monaco:h12
-colorscheme railscasts
+set background=dark
+colorscheme solarized
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 map <S-Enter> O<Esc>j
