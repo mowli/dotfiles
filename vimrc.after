@@ -3,9 +3,6 @@ set background=dark
 colorscheme solarized
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
-map <S-Enter> O<Esc>j
-map <CR> o<Esc>k
-
 command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
 
 " disable arrow keys
