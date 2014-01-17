@@ -65,6 +65,9 @@ set -o vi
 # Map history backward search (Ctrl-R in emacs mode) to [command-mode]?
 bindkey '^R' history-incremental-pattern-search-backward
 
+alias m='mvim'
+alias gti=git
+
 mvim_fc() {
   mvim $(git status | grep 'both modified' |cut -d: -f2 | head -1)
 }
