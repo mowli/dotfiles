@@ -7,6 +7,16 @@ call vundle#rc()
 " Custom settings
 let mapleader="_"
 
+""
+"" Whitespace
+""
+
+set nowrap                        " don't wrap lines
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
 
 let macvim_skip_colorscheme = 1
 
@@ -48,6 +58,10 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-surround'
+Bundle 'thoughtbot/vim-rspec'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
