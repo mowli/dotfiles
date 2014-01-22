@@ -62,6 +62,7 @@ Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-endwise'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
