@@ -36,6 +36,7 @@ plugins=(rails2 git ruby bundler osx fu)
 #bindkey '\e[3~' delete-char
 #bindkey '^R' history-incremental-search-backward
 
+export FUCHS_DEV=$HOME/Sites/fuchs
 # Customize to your needs...
 export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
 
