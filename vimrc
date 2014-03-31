@@ -17,6 +17,7 @@ set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
+set mouse=a
 
 let macvim_skip_colorscheme = 1
 
@@ -35,6 +36,7 @@ set laststatus=2      " Always show status bar
 
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
+set autochdir
 
 " end
 
@@ -57,8 +59,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'thoughtbot/vim-rspec'
@@ -105,4 +107,10 @@ autocmd VimEnter * NERDTree
 " Ignore files for ctrlp
 set wildignore+=tags,doc,tmp,log
 
+map <D-F> :Ack<space>
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+syntax on
+
+map <C-t> :CtrlP<CR>

@@ -66,7 +66,7 @@ set -o vi
 # Map history backward search (Ctrl-R in emacs mode) to [command-mode]?
 bindkey '^R' history-incremental-pattern-search-backward
 
-alias m='mvim'
+alias v='vim'
 alias gti=git
 
 mvim_fc() {
