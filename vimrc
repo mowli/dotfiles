@@ -17,9 +17,20 @@ set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
-set mouse=a
+set hlsearch                      " activate search result highlighting
+" Ignore files for ctrlp
+set wildignore+=tags,doc,tmp,log
+set nocompatible      " Do not be compatible with Vi - be iMproved
+set number            " Enable line numbers
+set laststatus=2      " Always show status bar
 
-let macvim_skip_colorscheme = 1
+set backupdir^=~/.vim/_backup//    " where to put backup files.
+set directory^=~/.vim/_temp//      " where to put swap files.
+set t_Co=256
+
+set mouse+=a
+" tmux knows the extended mouse mode
+set ttymouse=xterm2
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons = 1
@@ -28,15 +39,6 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:loaded_netrw       = 0
 let g:loaded_netrwPlugin = 0
-
-
-set nocompatible      " Do not be compatible with Vi - be iMproved
-set number            " Enable line numbers
-set laststatus=2      " Always show status bar
-
-set backupdir^=~/.vim/_backup//    " where to put backup files.
-set directory^=~/.vim/_temp//      " where to put swap files.
-set autochdir
 
 " end
 
@@ -59,12 +61,13 @@ Bundle 'mileszs/ack.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'thoughtbot/vim-rspec'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -90,6 +93,7 @@ colorscheme solarized
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
+command! -nargs=1 Fu :exec ":cd " . $FUCHS_DEV . "/" . <q-args> | :NERDTree
 
 " disable arrow keys
 noremap  <Up> ""
@@ -104,13 +108,23 @@ noremap! <Right> <Esc>
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
 
-" Ignore files for ctrlp
-set wildignore+=tags,doc,tmp,log
 
 map <D-F> :Ack<space>
+
+" copy paste
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
+"  scroll left and right when 'nowrap':
+map <C-L> zl
+map <C-H> zh
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 syntax on
 
 map <C-t> :CtrlP<CR>
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
