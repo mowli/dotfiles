@@ -68,6 +68,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'bling/vim-airline'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -92,7 +93,7 @@ set background=dark
 colorscheme solarized
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
-command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
+command Pry :normal orequire 'pry-remote'; binding.remote_pry<ESC>:w<CR>
 command! -nargs=1 Fu :exec ":cd " . $FUCHS_DEV . "/" . <q-args> | :NERDTree
 
 " disable arrow keys
