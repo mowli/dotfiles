@@ -15,6 +15,5 @@
 --ignore-dir=doc
 --ignore-dir=coverage
 --ignore-dir=spec/fixtures
---ignore-dir=magento
 --ignore-dir=public
 --ignore-dir=bin
