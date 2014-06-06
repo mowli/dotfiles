@@ -31,6 +31,8 @@ set t_Co=256
 set mouse+=a
 " tmux knows the extended mouse mode
 set ttymouse=xterm2
+" no freakin' end of line
+set noeol
 
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons = 1
