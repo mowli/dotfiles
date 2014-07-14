@@ -27,6 +27,9 @@ set laststatus=2      " Always show status bar
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
 set t_Co=256
+set term=xterm-256color
+set termencoding=utf-8
+set encoding=utf-8
 
 set mouse+=a
 " tmux knows the extended mouse mode
@@ -66,11 +69,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
-Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'bling/vim-airline'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -90,7 +91,8 @@ filetype plugin indent on     " required!
 " NOTE: comments after Bundle commands are not allowed.
 "
 " Custom settings 2
-set guifont=Monaco:h12
+set guifont=Inconsolata\ for\ Powerline:h14
+set encoding=utf-8
 set background=dark
 colorscheme solarized
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
@@ -110,7 +112,7 @@ noremap! <Right> <Esc>
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
-
+autocmd FileType ruby let &colorcolumn=80
 
 map <D-F> :Ack<space>
 
@@ -131,3 +133,34 @@ syntax on
 map <C-t> :CtrlP<CR>
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+function!   QuickFixOpenAll()
+  if empty(getqflist())
+    return
+  endif
+  let s:prev_val = ""
+  for d in getqflist()
+    let s:curr_val = bufname(d.bufnr)
+    if (s:curr_val != s:prev_val)
+      exec "edit " . s:curr_val
+    endif
+    let s:prev_val = s:curr_val
+  endfor
+endfunction
+
+command! QuickFixOpenAll         call QuickFixOpenAll()
+
+
+" powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\
+
+" Gitgutter Icons
+let g:gitgutter_sign_added = '►'
+let g:gitgutter_sign_modified = '▲'
+let g:gitgutter_sign_removed = '◄'
+let g:gitgutter_sign_removed_first_line = '◄'
+let g:gitgutter_sign_modified_removed = '▼'
