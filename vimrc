@@ -126,8 +126,6 @@ vmap <F2> :w !pbcopy<CR><CR>
 map <C-L> zl
 map <C-H> zh
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 syntax on
 
 map <C-t> :CtrlP<CR>
