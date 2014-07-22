@@ -121,6 +121,8 @@ nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
+vnoremap Y "*y
+nnoremap Y "*y
 
 "  scroll left and right when 'nowrap':
 map <C-L> zl
