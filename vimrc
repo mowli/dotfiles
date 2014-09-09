@@ -72,6 +72,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'rizzatti/dash.vim'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -160,8 +161,10 @@ let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
 
 " Gitgutter Icons
-let g:gitgutter_sign_added = '►'
-let g:gitgutter_sign_modified = '▲'
+let g:gitgutter_sign_added = '✭'
+let g:gitgutter_sign_modified = '✹'
 let g:gitgutter_sign_removed = '◄'
 let g:gitgutter_sign_removed_first_line = '◄'
 let g:gitgutter_sign_modified_removed = '▼'
+
+hi Normal ctermbg=NONE

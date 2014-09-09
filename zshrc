@@ -62,6 +62,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 alias v='vim'
 alias gti=git
 alias gt=gittower -s .
+alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 mvim_fc() {
   mvim $(git status | grep 'both modified' |cut -d: -f2 | head -1)
