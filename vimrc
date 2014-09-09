@@ -77,6 +77,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 " non-GitHub repos
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'christoomey/vim-tmux-navigator'
 " Git repos on your local machine (i.e. when working on your own plugin)
 
 filetype plugin indent on     " required!
