@@ -42,6 +42,7 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_check_on_open=0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_ruby_mri_exec = '/Users/olivernoack/.rbenv/shims/ruby'
 let g:loaded_netrw       = 0
 let g:loaded_netrwPlugin = 0
 
