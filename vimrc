@@ -20,8 +20,8 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 set hlsearch                      " activate search result highlighting
 " Ignore files for ctrlp
 set wildignore+=tags,doc,tmp,log
+set number
 set nocompatible      " Do not be compatible with Vi - be iMproved
-set number            " Enable line numbers
 set laststatus=2      " Always show status bar
 
 set backupdir^=~/.vim/_backup//    " where to put backup files.
@@ -116,14 +116,13 @@ noremap! <Right> <Esc>
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
 autocmd FileType ruby let &colorcolumn=80
+" check if file has been changed
+autocmd WinEnter * checktime
+autocmd CursorHold * checktime
 
 map <D-F> :Ack<space>
 
 " copy paste
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
 vnoremap Y "*y
 nnoremap Y "*y
 
