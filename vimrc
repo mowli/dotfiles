@@ -67,13 +67,14 @@ Bundle 'mileszs/ack.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'rizzatti/dash.vim'
+Bundle 'keith/parsec.vim'
+Bundle 'junegunn/fzf'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -97,7 +98,7 @@ filetype plugin indent on     " required!
 set guifont=Inconsolata\ for\ Powerline:h14
 set encoding=utf-8
 set background=dark
-colorscheme solarized
+colorscheme parsec
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 command Pry :normal orequire 'pry-remote'; binding.remote_pry<ESC>:w<CR>
