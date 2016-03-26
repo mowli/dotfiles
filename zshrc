@@ -5,7 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="muse"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_MODE='awesome-fontconfig'
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -53,15 +55,12 @@ source $ZSH/oh-my-zsh.sh
 VIM_EDITOR_NORC='vim -u NORC'
 EDITOR="$HOME/.std_editor"; export EDITOR
 
-# Activate vi mode
-set -o vi
-
 # Map history backward search (Ctrl-R in emacs mode) to [command-mode]?
-bindkey '^R' history-incremental-pattern-search-backward
+#bindkey '^R' history-incremental-pattern-search-backward
 
 alias v='vim'
 alias gti=git
-alias gt=gittower -s .
+alias gt='echo "NEIN"'
 alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 mvim_fc() {
@@ -70,3 +69,5 @@ mvim_fc() {
 rslv_fc() {
   git add $(git status | grep 'both modified' |cut -d: -f2 | head -1)
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
