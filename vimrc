@@ -2,14 +2,9 @@ set nocompatible              " be iMproved
 filetype off                  " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
 " Custom settings
 let mapleader="_"
-
-""
-"" Whitespace
-""
 
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
@@ -18,7 +13,6 @@ set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set hlsearch                      " activate search result highlighting
-" Ignore files for ctrlp
 set wildignore+=tags,doc,tmp,log
 set number
 set nocompatible      " Do not be compatible with Vi - be iMproved
@@ -46,54 +40,39 @@ let g:syntastic_ruby_mri_exec = '/Users/olivernoack/.rbenv/shims/ruby'
 let g:loaded_netrw       = 0
 let g:loaded_netrwPlugin = 0
 
-" end
-
+call vundle#begin()
 " let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
-"
 " original repos on GitHub
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'mileszs/ack.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'rizzatti/dash.vim'
-Bundle 'keith/parsec.vim'
-Bundle 'junegunn/fzf'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-" non-GitHub repos
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'christoomey/vim-tmux-navigator'
-" Git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-rails.git'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'rizzatti/dash.vim'
+Plugin 'keith/parsec.vim'
+Plugin 'junegunn/fzf'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'christoomey/vim-tmux-navigator'
 
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-"
+call vundle#end()
+filetype plugin indent on
+
 " Custom settings 2
 set guifont=Inconsolata\ for\ Powerline:h14
 set encoding=utf-8
