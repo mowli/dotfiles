@@ -1,13 +1,15 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+export TERM="xterm-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_MODE='awesome-fontconfig'
+#POWERLEVEL9K_MODE='awesome-fontconfig'
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -46,7 +48,7 @@ export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Oracle Development: ruby-oci8
-export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_12_1
 export NLS_LANG=GERMAN_GERMANY.UTF8
 export NLS_COMP=LINGUISTIC
 export NLS_SORT=BINARY_CI

@@ -31,6 +31,9 @@ set ttymouse=xterm2
 " no freakin' end of line
 set noeol
 
+" stop searching at the end of the file
+set nowrapscan
+
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons = 1
 let g:syntastic_check_on_open=0
@@ -54,7 +57,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-markdown'
 Plugin 'kchmck/vim-coffee-script'
@@ -69,6 +72,7 @@ Plugin 'junegunn/fzf'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on
@@ -76,8 +80,9 @@ filetype plugin indent on
 " Custom settings 2
 set guifont=Inconsolata\ for\ Powerline:h14
 set encoding=utf-8
-set background=dark
-colorscheme parsec
+set background=light
+colorscheme pencil
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 command Pry :normal orequire 'pry-remote'; binding.remote_pry<ESC>:w<CR>
