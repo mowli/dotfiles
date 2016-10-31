@@ -73,3 +73,6 @@ rslv_fc() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# chromedriver bugfix?!
+LANG=en_US.UTF-8
