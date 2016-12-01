@@ -62,6 +62,11 @@ EDITOR="$HOME/.std_editor"; export EDITOR
 
 alias v='vim'
 alias gti=git
+# my favorite typo
+# push has an alias tpush with "git config --global alias.tpush push"
+# push has an alias tpush with "git config --global alias.tpull pull"
+alias gi=git
+
 alias gt='echo "NEIN"'
 alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 

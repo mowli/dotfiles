@@ -15,6 +15,7 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 set hlsearch                      " activate search result highlighting
 set wildignore+=tags,doc,tmp,log
 set number
+set relativenumber
 set nocompatible      " Do not be compatible with Vi - be iMproved
 set laststatus=2      " Always show status bar
 
