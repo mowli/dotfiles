@@ -15,14 +15,15 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 set hlsearch                      " activate search result highlighting
 set wildignore+=tags,doc,tmp,log
 set number
-set relativenumber
+"set relativenumber
 set nocompatible      " Do not be compatible with Vi - be iMproved
 set laststatus=2      " Always show status bar
+set incsearch
 
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
 set t_Co=256
-set term=xterm-256color
+"set term=xterm-256color
 set termencoding=utf-8
 set encoding=utf-8
 
@@ -52,28 +53,32 @@ Plugin 'gmarik/vundle'
 " original repos on GitHub
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-rails.git'
-Plugin 'altercation/vim-colors-solarized.git'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'tpope/vim-rails.git'
+"Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-markdown'
-Plugin 'kchmck/vim-coffee-script'
+"Plugin 'tpope/vim-markdown'
+"Plugin 'kchmck/vim-coffee-script'
 Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'rizzatti/dash.vim'
-Plugin 'keith/parsec.vim'
+"Plugin 'thoughtbot/vim-rspec'
+"Plugin 'rizzatti/dash.vim'
+"Plugin 'keith/parsec.vim'
 Plugin 'junegunn/fzf'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
+"Plugin 'L9'
+"Plugin 'FuzzyFinder'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elixir-lang/vim-elixir'
+"Plugin 'neomake/neomake'
+"Plugin 'junegunn/goyo.vim'
+"Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -86,8 +91,8 @@ colorscheme pencil
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
-command Pry :normal orequire 'pry-remote'; binding.remote_pry<ESC>:w<CR>
-command! -nargs=1 Fu :exec ":cd " . $FUCHS_DEV . "/" . <q-args> | :NERDTree
+command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
+command! -nargs=1 Fu :exec ":cd " . $FUCHS_DEV . "/" . <q-args> | :NERDTree | :e README
 
 " disable arrow keys
 noremap  <Up> ""
@@ -122,6 +127,11 @@ map <C-t> :FZF<CR>
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
+" ag instead of ack
+let g:ackprg = 'ag --vimgrep'
+
+cnoreabbrev Ag Ack
+cnoreabbrev W w
 function!   QuickFixOpenAll()
   if empty(getqflist())
     return
@@ -140,9 +150,9 @@ command! QuickFixOpenAll         call QuickFixOpenAll()
 
 
 " powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
 

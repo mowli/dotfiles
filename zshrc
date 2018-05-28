@@ -33,7 +33,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails2 git ruby bundler osx fu)
+plugins=(rails2 git ruby bundler osx)
 
 # bindkey for backward search (doesn't work per default in vi-mode)
 #bindkey -v
@@ -42,13 +42,19 @@ plugins=(rails2 git ruby bundler osx fu)
 
 export FUCHS_DEV=$HOME/Sites/fuchs
 # Customize to your needs...
-export PATH=/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
+#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
 
 # Initialise rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+#export PATH=/usr/local/bin:$PATH
+
+
+
 # Oracle Development: ruby-oci8
 export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_12_1
+export OCI_DIR=/opt/oracle/instantclient_12_1
 export NLS_LANG=GERMAN_GERMANY.UTF8
 export NLS_COMP=LINGUISTIC
 export NLS_SORT=BINARY_CI
@@ -66,9 +72,9 @@ alias gti=git
 # push has an alias tpush with "git config --global alias.tpush push"
 # push has an alias tpush with "git config --global alias.tpull pull"
 alias gi=git
+alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 alias gt='echo "NEIN"'
-alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 mvim_fc() {
   mvim $(git status | grep 'both modified' |cut -d: -f2 | head -1)
@@ -81,3 +87,6 @@ rslv_fc() {
 
 # chromedriver bugfix?!
 LANG=en_US.UTF-8
+setopt cdablevars
+
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
