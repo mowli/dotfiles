@@ -40,13 +40,13 @@ plugins=(rails2 git ruby bundler osx)
 #bindkey '\e[3~' delete-char
 #bindkey '^R' history-incremental-search-backward
 
+# Initialise rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 export FUCHS_DEV=$HOME/Sites/fuchs
 # Customize to your needs...
 #export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin
-
-# Initialise rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin:/Users/olivernoack/Library/Python/3.7/bin
 
 #export PATH=/usr/local/bin:$PATH
 
@@ -74,19 +74,16 @@ alias gti=git
 alias gi=git
 alias cleanup-local-branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
-alias gt='echo "NEIN"'
-
-mvim_fc() {
-  mvim $(git status | grep 'both modified' |cut -d: -f2 | head -1)
-}
-rslv_fc() {
-  git add $(git status | grep 'both modified' |cut -d: -f2 | head -1)
-}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # chromedriver bugfix?!
 LANG=en_US.UTF-8
+
+hash -d fu="$HOME/Sites/fuchs"
+alias fu='~fu'
+
+hash -d pf="$HOME/Sites/pfreundt"
+alias pf='~pf'
 setopt cdablevars
 
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"

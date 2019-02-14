@@ -36,12 +36,23 @@ set noeol
 " stop searching at the end of the file
 set nowrapscan
 
+"setlocal statusline=%{pathshorten(expand('%:f'))}
+
 let g:syntastic_auto_loc_list=1
 let g:syntastic_enable_balloons = 1
 let g:syntastic_check_on_open=0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_ruby_mri_exec = '/Users/olivernoack/.rbenv/shims/ruby'
+
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint --'
 let g:loaded_netrw       = 0
 let g:loaded_netrwPlugin = 0
 
@@ -57,7 +68,7 @@ Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'tpope/vim-rails.git'
 "Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'mileszs/ack.vim'
@@ -66,7 +77,7 @@ Plugin 'airblade/vim-gitgutter'
 "Plugin 'kchmck/vim-coffee-script'
 Plugin 'ervandew/supertab'
 "Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
+"Plugin 'tpope/vim-endwise'
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'thoughtbot/vim-rspec'
 "Plugin 'rizzatti/dash.vim'
@@ -75,10 +86,12 @@ Plugin 'junegunn/fzf'
 "Plugin 'L9'
 "Plugin 'FuzzyFinder'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'elixir-lang/vim-elixir'
+"Plugin 'elixir-lang/vim-elixir'
 "Plugin 'neomake/neomake'
 "Plugin 'junegunn/goyo.vim'
 "Plugin 'junegunn/limelight.vim'
+"Plugin 'k0kubun/vim-open-github'
+Plugin 'autozimu/LanguageClient-neovim'
 
 call vundle#end()
 filetype plugin indent on
@@ -108,8 +121,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
 autocmd FileType ruby let &colorcolumn=80
 " check if file has been changed
-autocmd WinEnter * checktime
-autocmd CursorHold * checktime
+"autocmd WinEnter * checktime
+"autocmd CursorHold * checktime
 
 map <D-F> :Ack<space>
 
@@ -150,11 +163,37 @@ command! QuickFixOpenAll         call QuickFixOpenAll()
 
 
 " powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup
+"let g:Powerline_symbols = 'fancy'
+"set fillchars+=stl:\ ,stlnc:\
+
+" fancy statusline (compare
+" https://dustri.org/b/lightweight-and-sexy-status-bar-in-vim.html)
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=\ %n\           " buffer number
+set statusline+=%#Visual#       " colour
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%#CursorIM#     " colour
+set statusline+=%R                        " readonly flag
+set statusline+=%M                        " modified [+] flag
+set statusline+=%#Cursor#               " colour
+set statusline+=%#CursorLine#     " colour
+set statusline+=\ %F\                   " short file name
+set statusline+=%=                          " right align
+set statusline+=%#CursorLine#   " colour
+set statusline+=\ %Y\                   " file type
+set statusline+=%#CursorIM#     " colour
+set statusline+=\ %3l:%-2c\         " line + column
+set statusline+=%#Cursor#       " colour
+set statusline+=\ %3p%%\                " percentage
+
 
 " Gitgutter Icons
 let g:gitgutter_sign_added = '✭'
