@@ -13,7 +13,7 @@ set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set hlsearch                      " activate search result highlighting
-set wildignore+=tags,doc,tmp,log
+set wildignore+=tags,doc,tmp,log,node_modules
 set number
 "set relativenumber
 set nocompatible      " Do not be compatible with Vi - be iMproved
@@ -44,8 +44,6 @@ let g:syntastic_check_on_open=0
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_ruby_mri_exec = '/Users/olivernoack/.rbenv/shims/ruby'
-
-
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -91,7 +89,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'junegunn/goyo.vim'
 "Plugin 'junegunn/limelight.vim'
 "Plugin 'k0kubun/vim-open-github'
-Plugin 'autozimu/LanguageClient-neovim'
+"Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -108,14 +106,14 @@ command Pry :normal orequire 'pry'; binding.pry<ESC>:w<CR>
 command! -nargs=1 Fu :exec ":cd " . $FUCHS_DEV . "/" . <q-args> | :NERDTree | :e README
 
 " disable arrow keys
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-noremap  <Left> ""
-noremap! <Left> <Esc>
-noremap  <Right> ""
-noremap! <Right> <Esc>
+"noremap  <Up> ""
+"noremap! <Up> <Esc>
+"noremap  <Down> ""
+"noremap! <Down> <Esc>
+"noremap  <Left> ""
+"noremap! <Left> <Esc>
+"noremap  <Right> ""
+"noremap! <Right> <Esc>
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd VimEnter * NERDTree
@@ -203,3 +201,5 @@ let g:gitgutter_sign_removed_first_line = '◄'
 let g:gitgutter_sign_modified_removed = '▼'
 
 hi Normal ctermbg=NONE
+"let g:ale_completion_enabled = 1
+"set completeopt=menu,menuone,preview,noselect,noinsert

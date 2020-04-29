@@ -17,3 +17,4 @@
 --ignore-dir=spec/fixtures
 --ignore-dir=public
 --ignore-dir=bin
+--ignore-dir=node_modules

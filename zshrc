@@ -33,7 +33,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails2 git ruby bundler osx)
+plugins=(rails2 git ruby bundler osx z)
 
 # bindkey for backward search (doesn't work per default in vi-mode)
 #bindkey -v
@@ -46,7 +46,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export FUCHS_DEV=$HOME/Sites/fuchs
 # Customize to your needs...
 #export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin
-export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin:/Users/olivernoack/Library/Python/3.7/bin
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bib:/usr/local/sbin:/Users/olivernoack/Library/Python/3.7/bin:/Users/olivernoack/Sites/tech-examples/flutter/bin
 
 #export PATH=/usr/local/bin:$PATH
 
@@ -68,6 +68,7 @@ EDITOR="$HOME/.std_editor"; export EDITOR
 
 alias v='vim'
 alias gti=git
+alias got='echo "Winter is coming"'
 # my favorite typo
 # push has an alias tpush with "git config --global alias.tpush push"
 # push has an alias tpush with "git config --global alias.tpull pull"
@@ -81,6 +82,9 @@ LANG=en_US.UTF-8
 
 hash -d fu="$HOME/Sites/fuchs"
 alias fu='~fu'
+
+hash -d si="$HOME/Sites"
+alias fu='~si'
 
 hash -d pf="$HOME/Sites/pfreundt"
 alias pf='~pf'
